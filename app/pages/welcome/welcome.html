@@ -1,0 +1,96 @@
+<GridLayout backgroundColor="#32464f">
+
+    <GridLayout>
+        <Image stretch="fill" src="res://spirals_bg"></Image>
+    </GridLayout>
+
+    <GridLayout id="welcome-screen" rows="*, auto, *">
+
+        <StackLayout row="1" *ngIf="!registration">
+            <Image id="logo" src="res://logo_welcome_bg" horizontalAlignment="center" height="60" width="60" verticalAlignment="center"></Image>
+            <Image src="res://logo_text" horizontalAlignment="center" class="logo_text" height="20" verticalAlignment="center"></Image>
+
+            <Label id="intro-text-one" class="welcome-tag-line" text="Rewards by just buying&#xA;Electricity" horizontalAlignment="center"
+                verticalAlignment="center" textWrap="true" textAlignment="center">
+                 </Label>
+            <Label horizontalAlignment="center" verticalAlignment="center" color="#3e9742" textWrap="true" text="Learn More"></Label>
+            <Button borderRadius="25" height="50" width="234" fontSize="18" text="Get Started" color="white" (tap)="getStarted()"></Button>
+        </StackLayout>
+
+    </GridLayout>
+
+    <GridLayout id="welcome-registration" *ngIf="registration">
+
+        <GridLayout class="form-content" rows="*, auto, *">
+            <StackLayout row="0" verticalAlignment="top">
+                <Image id="logo-registration" src="res://logo_welcome_bg" horizontalAlignment="center" height="50" verticalAlignment="center">
+                </Image>
+                <Image src="res://logo_text" horizontalAlignment="center" class="logo_text" height="20" verticalAlignment="center"></Image>
+                <Label text="REGISTRATION" horizontalAlignment="center" textWrap="true" color="white" textAlignment="center"></Label>
+                <Label text="{{ secondPage ? '&#xf0eb;': '&#xf007;'}}" horizontalAlignment="center" textWrap="true" color="white" textAlignment="center"
+                    class="fa icon"></Label>
+            </StackLayout>
+            <ScrollView row="1" cssClass="fields-section">
+
+                <StackLayout>
+                    <StackLayout *ngIf="!secondPage" class="form-fields">
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="First Name" cssClass="field-title"></Label>
+                            <TextField ios:hint="First Name" class="field" keyboardType="text" ios:col="1" android:row="1" [(ngModel)]="user.firstname"
+                                autocorrect="false" autocapitalizationType="none"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Last Name" cssClass="field-title"></Label>
+                            <TextField ios:hint="Last Name" class="field" keyboardType="text" ios:col="1" android:row="1" [(ngModel)]="user.lastname"
+                                autocorrect="false" autocapitalizationType="none"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="ID Number" cssClass="field-title"></Label>
+                            <TextField ios:hint="ID Number" class="field" keyboardType="number" ios:col="1" android:row="1" [(ngModel)]="user.idnumber"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Cellphone" cssClass="field-title"></Label>
+                            <TextField ios:hint="Cellphone" class="field" keyboardType="number" ios:col="1" android:row="1" [(ngModel)]="user.cellphone"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout *ngIf="secondPage" class="form-fields">
+
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Meter Number" cssClass="field-title"></Label>
+                            <TextField ios:hint="Meter Number" class="field" keyboardType="number" ios:col="1" android:row="1" [(ngModel)]="user.meternumber"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Provider" cssClass="field-title"></Label>
+                            <DropDown #dd [items]="items" class="field" [selectedIndex]="selectedIndex" ios:col="1" android:row="1" (selectedIndexChange)="onchange(dd.selectedIndex)"></DropDown>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Group" cssClass="field-title"></Label>
+                            <TextField ios:hint="Group" keyboardType="text" class="field" ios:col="1" android:row="1" [(ngModel)]="user.group" autocorrect="false"
+                                autocapitalizationType="none"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                        <GridLayout ios:columns="auto,*" android:rows="auto, auto" verticalAlignment="top">
+                            <Label text="Nickname" cssClass="field-title"></Label>
+                            <TextField ios:hint="Nickname" keyboardType="text" class="field" ios:col="1" android:row="1" [(ngModel)]="user.nickname"
+                                autocorrect="false" autocapitalizationType="none"></TextField>
+                        </GridLayout>
+                        <StackLayout cssClass="line"></StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+            <Button borderRadius="25" height="50" width="234" row="2" fontSize="18" text="{{continueText}}" color="white" (tap)="continue()"></Button>
+
+        </GridLayout>
+
+
+    </GridLayout>
+
+</GridLayout>

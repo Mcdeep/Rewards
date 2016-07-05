@@ -1,0 +1,24 @@
+<StackLayout>
+
+    <StackLayout *ngIf="!secondPage">
+        <TextField hint="First Name" keyboardType="text" [(ngModel)]="user.firstname"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField hint="Last Name" keyboardType="text" [(ngModel)]="user.lastname"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField hint="ID Number" keyboardType="number" [(ngModel)]="user.idnumber"></TextField>
+        <TextField hint="Cellphone" keyboardType="number" [(ngModel)]="user.cellphone"></TextField>
+    </StackLayout>
+
+    <StackLayout *ngIf="secondPage">
+        <TextField hint="Meter Number" keyboardType="number" [(ngModel)]="user.meternumber"></TextField>
+        <TextField hint="Electricity Provider" keyboardType="text" [(ngModel)]="user.provider"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField hint="Group" keyboardType="text" [(ngModel)]="user.group"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+        <TextField hint="Nickname" keyboardType="text" [(ngModel)]="user.nickname"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+    </StackLayout>
+
+    <Button text="Proceed" (tap)="next()"></Button>
+    
+</StackLayout>

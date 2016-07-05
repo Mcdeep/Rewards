@@ -1,0 +1,37 @@
+#logo{
+    margin-top:0;
+    margin-bottom: 5;
+}
+
+#logo-registration{
+    margin-top: 0;
+    margin-bottom: 5;
+}
+
+.logo_text{
+    margin-bottom: 5;
+}
+
+.welcome-tag-line{
+    margin-top: 5;
+    font-size: 15;
+    color: white;
+}
+
+DropDown{
+    margin-top: 10;
+}
+
+Button{
+    margin-top: 30;
+    background-color: #3e9742;
+    border-width: 2;
+    border-color: white;
+}
+
+.form-content{
+    margin-top: 50;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 42;
+}

@@ -1,0 +1,24 @@
+﻿Button, label, stack-layout {
+    horizontal-align: center;    
+}
+
+.fa {
+    font-size: 30;
+    font-family: 'FontAwesome', fontawesome-webfont;
+}
+
+Button {
+      font-size: 18;
+}
+
+.title {
+    font-size: 30;
+    margin: 20;
+}
+
+.message {
+    font-size: 20;
+    color: #284848;
+    text-align: center;
+    margin: 0 20;
+} 
